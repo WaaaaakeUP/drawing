@@ -1,0 +1,23 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+task run(type:JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'Main'
+}
+
+sourceSets {
+    main {
+        resources{
+            srcDir('res')
+        }
+        java{
+            srcDir('src/main/java')
+        }
+    }
+}
+
+dependencies { compile files('lib/vecmath.jar') }
